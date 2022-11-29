@@ -13,3 +13,5 @@ The user can add and track their cryptocurrency orders. Anytime a buy or sell or
 
 CHARTS - 
 The user can add assets to their watchlist, which will display the asset's chart. The charts are made using the Chart.js library and created dynamically by fetching the last 30 days of price data from the Coin Gecko API. Data from the same API is also used to dynamically create the list of available assets, their logos and symbols.
+
+Try it live: https://wise-tracker-af.netlify.app
