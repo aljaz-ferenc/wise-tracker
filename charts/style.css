@@ -8,7 +8,7 @@
   --color-neutral: rgb(255, 255, 255);
   --color-text: rgb(38, 38, 38);
   --color-neutral-dark: rgb(221, 221, 221);
-  --color-expense: rgb(239, 9, 9);
+  --color-expense: #ef0909;
   --color-income: rgb(9, 130, 9);
   --color-shadow: rgba(0, 0, 0, 0.5);
   --color-shadow-light: rgba(0, 0, 0, 0.3);
@@ -167,7 +167,7 @@ a:active {
 }
 
 .sell-btn {
-  background-color: var(--color-expense);
+  background-color: #B10202;
 }
 
 .trade-btns {
