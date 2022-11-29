@@ -1,0 +1,1022 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+  --color-primary: rgb(40, 32, 162);
+  --color-secondary: rgb(0, 153, 255);
+  --color-accent: rgb(255, 173, 32);
+  --color-neutral: rgb(255, 255, 255);
+  --color-neutral-dark: rgb(221, 221, 221);
+  --color-text: rgb(38, 38, 38);
+  --color-expense: rgb(239, 9, 9);
+  --color-income: rgb(9, 130, 9);
+  --color-shadow: rgba(0, 0, 0, 0.5);
+  --color-shadow-light: rgba(0, 0, 0, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+}
+
+a:hover {
+  filter: brightness(1.5);
+}
+
+a:active {
+  filter: brightness(0.8);
+}
+
+body {
+  opacity: 0;
+  transition: 1s;
+  height: 100%;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  background-image: url(images/background/wave-top.svg),
+    url(images/background/wave-bottom.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100%, 100%;
+  background-position-x: right;
+  background-position: top, bottom;
+  overflow-x: hidden;
+}
+
+input:focus {
+  outline-color: var(--color-secondary);
+}
+
+.container {
+  margin: 0 5rem;
+}
+
+.header {
+  margin: 2rem 15rem;
+}
+
+.nav-list {
+  list-style: none;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  margin: 0 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-neutral);
+  padding: 0.7rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.logo a {
+  background-color: transparent;
+}
+
+.logo img {
+  height: 3rem;
+}
+
+a:hover {
+  filter: brightness(1.5);
+}
+.logo a:hover {
+  filter: brightness(1.2);
+}
+
+a:active {
+  filter: brightness(0.8);
+}
+
+.logo {
+  margin-right: auto;
+}
+
+.heading {
+  color: var(--color-secondary);
+  text-align: center;
+  position: absolute;
+  transition: opacity 0.3s ease-in;
+}
+
+.chart-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 5rem;
+}
+
+.main-chart {
+  position: relative;
+  width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#money-left {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-income);
+  transition: all 0.3s;
+  text-align: center;
+}
+
+#budget-spent {
+  position: absolute;
+  transform: translateY(200%);
+  color: var(--color-expense);
+}
+
+.transaction-input-section {
+  overflow: hidden;
+}
+
+.expense-input-container {
+  width: 100%;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+}
+
+.add-expense {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.add-income {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.income-input-container {
+  width: 100%;
+  display: flex;
+  opacity: 0;
+  position: absolute;
+}
+
+.modal {
+  position: fixed;
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 25rem 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  box-shadow: 0 0 5px 5px var(--color-shadow-light);
+  box-sizing: content-box;
+  border-radius: 8px;
+}
+
+.modal input {
+  height: 100%;
+  padding: 0 1.5rem;
+  border: none;
+  box-shadow: 1px 1px 3px var(--color-shadow);
+}
+
+.modal-income {
+  display: none;
+}
+
+.modal-expenses {
+  display: none;
+}
+
+.modal-heading {
+  align-self: flex-start;
+  color: rgb(2, 81, 145);
+  font-family: sans-serif;
+}
+
+.modal-expenses h2 {
+  color: var(--color-expense);
+}
+
+.modal-income h2 {
+  color: var(--color-income);
+}
+
+.add-expense-btn,
+.add-income-btn,
+.add-category-btn {
+  background-color: var(--color-neutral);
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.add-expense-btn {
+  color: var(--color-expense);
+}
+
+.add-income-btn {
+  color: var(--color-income);
+}
+
+.add-category-btn {
+  color: rgb(2, 81, 145);
+}
+
+.active {
+  height: 100%;
+  opacity: 1;
+  position: relative;
+}
+
+.add-transaction-container {
+  max-width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.transactions {
+  max-width: 130rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem auto;
+  border-radius: 8px;
+  padding: 2rem;
+  overflow-y: scroll;
+  max-height: 35rem;
+  background-color: var(--color-neutral);
+  box-shadow: 2px 2px 10px var(--color-shadow);
+}
+
+.display-expense-btn {
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--color-neutral);
+  border-radius: 5px;
+  margin-left: 3.7rem;
+  border: none;
+  box-shadow: 1px 1px 3px var(--color-shadow);
+  transform: translateY(-5px);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.display-income-btn {
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--color-neutral);
+  border-radius: 5px;
+  margin-left: 5rem;
+  border: none;
+  box-shadow: 1px 1px 3px var(--color-shadow);
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.display-income-btn svg,
+.display-expense-btn svg {
+  transition: all 500ms cubic-bezier(0.995, -1.5, 0.14, 1.65);
+}
+
+.display-income-btn svg:hover,
+.display-expense-btn svg:hover {
+  transform: rotate(180deg);
+}
+
+.flex {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.income-heading {
+  color: var(--color-primary);
+}
+
+.expenses-heading {
+  color: var(--color-primary);
+}
+
+.expenses-container,
+.income-container {
+  padding: 1rem;
+  width: 50%;
+}
+
+.expenses-container h2 {
+  display: inline;
+}
+
+.income-container h2 {
+  display: inline;
+}
+
+.income {
+  color: var(--color-text);
+  position: relative;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+  background-color: var(--color-accent);
+  box-shadow: 2px 2px 10px var(--color-shadow);
+}
+
+.expense {
+  color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+  background-color: var(--color-accent);
+  box-shadow: 2px 2px 10px var(--color-shadow);
+}
+
+.income:last-child::after,
+.expense:last-child::after {
+  content: "";
+  height: 1.5rem;
+  position: absolute;
+  border: 2px solid transparent;
+  transform: translateY(100%);
+  visibility: hidden;
+}
+
+.trash-income,
+.trash-expense {
+  display: flex;
+  color: var(--color-neutral);
+  justify-content: center;
+  align-items: center;
+  height: 1.8rem;
+  width: 1.8rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+  background-color: var(--color-accent);
+  border-radius: 3px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.close-modal {
+  height: 3rem;
+  position: absolute;
+  right: 3.3rem;
+  background-color: var(--color-neutral-dark);
+  border-radius: 5px;
+  fill: var(--color-neutral);
+  transition: all 0.2s;
+}
+
+.close-modal:hover {
+  background-color: var(--color-expense);
+  cursor: pointer;
+}
+
+/****************************************Envelopes****************************************/
+.envelopes-section {
+  margin: 0 2rem;
+  background-color: var(--color-neutral);
+  padding: 2rem;
+  padding-top: 1rem;
+  border-radius: 8px;
+  max-width: 130rem;
+  margin: 0 auto;
+  margin-bottom: 10rem;
+}
+
+.envelopes-heading {
+  color: var(--color-secondary);
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.envelopes-text{
+  margin-bottom: 1rem;
+}
+
+.envelope {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 15rem;
+  height: 8rem;
+  padding-bottom: 0.7rem;
+  border: 1px solid var(--color-shadow-light);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-color: var(--color-accent);
+}
+
+.add-envelope {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 8rem;
+  border-radius: 8px;
+  background-color: var(--color-neutral-dark);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.envelopes {
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 100rem;
+  row-gap: 1rem;
+}
+
+.envelope-progress {
+  height: 6px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.envelope-goal {
+  font-size: 0.7rem;
+}
+
+.envelope-total {
+  font-size: 0.7rem;
+}
+
+.envelope-total span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.envelope-left {
+  font-size: 0.7rem;
+}
+
+.add-envelope:hover {
+  transform: translateY(-3px);
+  box-shadow: 1px 1px 3px var(--color-shadow-light);
+}
+
+.add-envelope-btn {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px var(--color-shadow);
+  background-color: var(--color-neutral);
+  cursor: inherit;
+}
+
+.add-envelope-btn svg {
+  transition: all 500ms cubic-bezier(0.995, -1.5, 0.14, 1.65);
+}
+
+.add-envelope-btn svg:hover {
+  transform: rotate(180deg);
+}
+
+.add-envelope-modal {
+  display: none;
+}
+
+.modal-active {
+  display: flex;
+}
+
+.envelope {
+  transition: all 0.2s;
+}
+
+.envelope:hover {
+  transform: translateY(-3px);
+  box-shadow: 1px 1px 3px var(--color-shadow-light);
+}
+
+.envelope:hover::before {
+  position: absolute;
+  content: "Add to envelope";
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-neutral);
+  outline-style: double;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.trash-envelope {
+  height: 1.5rem;
+  position: absolute;
+  right: 0;
+  margin: 0.3rem;
+  display: none;
+  cursor: pointer;
+  fill: var(--color-neutral);
+}
+
+.envelope:hover .trash-envelope {
+  display: block;
+  z-index: 99;
+}
+
+.modal-envelope {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+}
+
+/*********************************************Mobile Navigation*********************************/
+
+.hamburger {
+  width: 3rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+  display: none;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.label {
+  position: relative;
+  display: block;
+  width: 2rem;
+  height: 4px;
+  background-color: var(--color-accent);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.label2 {
+  content: "";
+  width: 2rem;
+  height: 4px;
+  background-color: inherit;
+  position: absolute;
+  transform: translateY(-0.5rem);
+  border-radius: 3px;
+  background-color: var(--color-accent);
+  transition: all 0.3s;
+}
+
+.label1 {
+  content: "";
+  width: 2rem;
+  height: 4px;
+  background-color: inherit;
+  position: absolute;
+  transform: translateY(0.5rem);
+  border-radius: 3px;
+  background-color: var(--color-accent);
+  transition: all 0.3s;
+}
+
+.mobile-nav {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-neutral);
+  z-index: 99;
+  gap: 2rem;
+  font-size: 3rem;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  padding-top: 5rem;
+}
+
+.mobile-nav li {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-active {
+  display: flex;
+  opacity: 1;
+  height: 100%;
+  visibility: visible;
+}
+
+.label-active {
+  display: none;
+}
+.label1-active {
+  rotate: 225deg;
+  transform: translateY(0);
+}
+.label2-active {
+  rotate: -225deg;
+  transform: translateY(0);
+}
+
+/*********************************************Responsive*********************************/
+
+@media screen and (max-width: 1600px) {
+  .transactions {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+    margin: 2rem auto;
+    font-size: 1rem;
+  }
+  .container {
+    margin: 2rem 0;
+  }
+  .envelopes-section {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+  .main-chart {
+    width: 35rem;
+  }
+  .envelopes {
+    width: 100%;
+  }
+  body {
+    background-size: 400%, 100%;
+  }
+  #budget-spent {
+    font-size: 1.5rem;
+  }
+  .income-container,
+  .expenses-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  body {
+    background-size: 100%, 230%;
+  }
+  .transactions {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+    margin: 2rem auto;
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+  }
+  .income,
+  .expense {
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+  .expenses-container,
+  .income-container {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+  }
+  .modal {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    gap: 0.5rem;
+  }
+  .modal input,
+  .modal-heading {
+    height: 3rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .modal-heading {
+    font-size: 1.2rem;
+  }
+  .close-modal {
+    height: 3rem;
+  }
+  .a {
+    margin: 0 1rem;
+  }
+
+  .main-chart {
+    width: 30rem;
+    margin-top: 2rem;
+  }
+  .container {
+    margin: 1rem;
+  }
+  .expenses-heading,
+  .income-heading {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+  }
+  .header {
+    display: none;
+  }
+  .heading {
+    font-size: 1.5rem;
+  }
+  #budget-spent {
+    font-size: 1.3rem;
+  }
+  .income,
+  .expense {
+    padding: 0.3rem 0.5rem;
+    margin: 0.5rem 0;
+  }
+  .envelopes-section {
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+  .envelopes {
+    margin: 0 auto;
+  }
+  .envelopes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .envelope,
+  .add-envelope {
+    font-size: 1rem;
+    width: 17rem;
+    height: 9rem;
+  }
+  .envelope-title {
+    font-size: 1rem;
+  }
+  .trash-envelope {
+    display: block;
+  }
+  .mobile-nav a {
+    font-size: 1.8rem;
+  }
+  .hamburger {
+    margin-top: 1rem;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  body {
+    background-size: 200%, 260%;
+  }
+  .transactions {
+    width: 90%;
+    margin-bottom: 0.5rem;
+    padding: 0;
+  }
+
+  .trash-envelope {
+    display: block;
+  }
+
+  .main-chart {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .logo {
+    margin: 0;
+  }
+  .container {
+    margin: 0 0.5rem;
+    padding: 0 0.5rem;
+  }
+  .nav-list {
+    font-size: 1rem;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header a {
+    font-size: 0.8rem;
+  }
+  .main-chart {
+    max-width: 25rem;
+    margin: 2rem auto;
+  }
+  .income-heading,
+  .expenses-heading {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  .transactions p {
+    font-size: 0.8rem;
+  }
+  .expense,
+  .income {
+    margin: 0.2rem 0;
+  }
+  .income p {
+    margin: 0;
+  }
+  .modal {
+    width: 90vw;
+    margin: 0;
+    padding: 1rem;
+    position: absolute;
+  }
+  #money-left {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  #budget-spent {
+    font-size: 1rem;
+  }
+  .header {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .display-expense-btn,
+  .display-income-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .heading {
+    font-size: 1.5rem;
+  }
+  .close-modal {
+    height: 3rem;
+  }
+  .envelopes-section {
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+  .envelopes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+  }
+  .envelope,
+  .add-envelope {
+    font-size: 1rem;
+    width: 18rem;
+    height: 10rem;
+  }
+  .hamburger {
+    right: 1rem;
+  }
+  .mobile-nav a {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    background-size: 200%, 200%;
+  }
+  header a {
+    font-size: 0.8rem;
+  }
+  .trash-envelope {
+    display: block;
+  }
+  .container {
+    margin: 0.5rem;
+    padding: 0;
+  }
+  #money-left {
+    font-size: 1.4rem;
+  }
+  #budget-spent {
+    font-size: 0.8rem;
+  }
+  .income-heading,
+  .expenses-heading {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .main-chart {
+    width: 15rem;
+    margin: 1rem auto;
+  }
+  .expenses-container,
+  .income-container {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  .transactions {
+    margin: 0 auto;
+    width: 95%;
+    gap: 0;
+  }
+  .trash-income,
+  .trash-expense {
+    height: 2rem;
+    width: 2rem;
+  }
+  .income p,
+  .expense p {
+    font-size: 0.7rem;
+  }
+  .display-expense-btn,
+  .display-income-btn {
+    width: 2rem;
+    height: 2rem;
+  }
+  .modal {
+    height: 100vh;
+    position: fixed;
+  }
+  .close-modal {
+    height: 2rem;
+  }
+  .envelopes {
+    margin: 0.5rem;
+    width: 95%;
+    grid-template-columns: 1fr;
+  }
+  .envelope,
+  .add-envelope {
+    font-size: 0.8rem;
+    width: 15rem;
+    height: 8rem;
+  }
+  .envelopes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+  }
+  .envelopes-section {
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    padding: 0.5rem;
+  }
+  .label,
+  .label1,
+  .label2 {
+    width: 2rem;
+    height: 4px;
+  }
+  .label::before {
+    transform: translateY(-0.5rem);
+  }
+  .label::after {
+    transform: translateY(0.5rem);
+  }
+  .hamburger {
+    right: 1rem;
+  }
+  .mobile-nav a {
+    font-size: 1.3rem;
+  }
+}

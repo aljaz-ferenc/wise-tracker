@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="images/icons/favicon64.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch180.png">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <meta
+      name="description"
+      content="Wise Tracker helps you make wiser spending and investing decisions by tracking your expenses, savings and trades in the world of volatile cryptocurrency market."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.umd.min.js" integrity="sha512-HyprZz2W40JOnIBIXDYHCFlkSscDdYaNe2FYl34g1DOmE9J+zEPoT4HHHZ2b3+milFBtiKVWb4sorDVVp+iuqA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Wise Tracker - Take control of your finances</title>
+  </head>
+  <body>
+    <div class="hamburger">
+      <div class="label"></div>
+      <div class="label1"></div>
+      <div class="label2"></div>
+  </div>
+    <nav>
+      <ul class="mobile-nav">
+        <li>
+          <div class="background"></div>
+          <a href="../index.html">Expense Tracker</a>
+        </li>
+        <li>
+          <div class="background"></div>
+          <a href="index.html">Crypto Tracker</a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header">
+      <nav>
+        <ul class="nav-list container">
+          <li class="logo">
+            <a href="/index.html"><img src="/images/logo/logo.webp" alt="logo">Logo</a>
+          </li>
+          <li>
+            <a href="../index.html">MyBudget</a>
+          </li>
+          <li>
+            <a href="index.html">CryptoTracker</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <div class="portfolio">
+        <h1 class="heading">MyPortfolio</h1>
+        <p class="portfolio-value">$0</p>
+        <div class="trade-btns">
+          <button class="buy-btn trade-btn">Buy</button>
+          <button class="sell-btn trade-btn">Sell</button>
+        </div>
+      </div>
+      <section class="orders-holdings"> 
+      <div class="left">
+        <div class="order-input">
+          <div class="buy-input">
+            <div>
+              <input type="text" class="input-asset-buy" placeholder="Asset" />
+            </div>
+            <input
+              type="number"
+              class="input-amount-buy"
+              placeholder="Amount"
+            />
+            <button class="confirm-buy">CONFIRM BUY</button>
+          </div>
+          <div class="sell-input">
+            <div>
+              <input type="text" class="input-asset-sell" placeholder="Asset" />
+            </div>
+            <input
+              type="number"
+              class="input-amount-sell"
+              placeholder="Amount"
+            />
+            <button class="confirm-sell">CONFIRM SELL</button>
+          </div>
+          <div class="autocomplete-list"></div>
+        </div>
+        <div class="trades">
+          <h1>Recent Orders</h1>
+          <table>
+            <tr class="table-headings">
+              <th>Type</th>
+              <th>Asset</th>
+              <th>Price</th>
+              <th>Amount</th>
+              <th>Value</th>
+              <th>Date</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="holdings-container">
+        <h1>Holdings</h1>
+        <div class="holdings"></div>
+      </div>
+      </section>
+      <section class="charts">
+        <h1>Watchlist</h1>
+        <div class="search-section">
+          <div class="select-asset">
+            <input type="text" class="search" placeholder="Search assets..." />
+            <span class="placeholder"></span>
+          </div>
+        </div>
+        <section class="charts-section">
+          <div class="asset-menu chart">
+            <button aria-label="Add chart" class="add-asset-btn">
+              <svg
+                class="add-icon"
+                fill="#ddd"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <div class="quote">
+        <p class="quote-text"></p>
+        <p class="quote-author"><cite></cite></p>
+      </div>
+    </footer>
+  </body>
+</html>

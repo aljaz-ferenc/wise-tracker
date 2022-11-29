@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/icons/favicon64.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch180.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta
+      name="description"
+      content="Wise Tracker helps you make wiser spending and investing decisions by tracking your expenses, savings and trades in the world of volatile cryptocurrency market."
+    />
+    <link defer rel="stylesheet" href="style.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="script.js"></script>
+    <title>Wise Tracker - Take control of your finances</title>
+  </head>
+  <body>
+    <div class="hamburger">
+      <div class="label"></div>
+      <div class="label1"></div>
+      <div class="label2"></div>
+    </div>
+    <nav>
+      <ul class="mobile-nav">
+        <li>
+          <div class="background"></div>
+          <a href="./index.html">Expense Tracker</a>
+        </li>
+        <li>
+          <div class="background"></div>
+          <a href="charts/index.html">Crypto Tracker</a>
+        </li>
+      </ul>
+    </nav>
+    <header class="header container">
+      <nav>
+        <ul class="nav-list">
+          <li class="logo">
+            <a href="/index.html"><img src="/images/logo/logo.webp" alt="logo">Logo</a>
+          </li>
+          <li>
+            <a href="index.html">Expense Tracker</a>
+          </li>
+          <li>
+            <a href="charts/index.html">Crypto Tracker</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="chart-section">
+        <div class="main-chart">
+          <h1 class="heading">Add your first income to create a budget</h1>
+          <canvas id="myChart"></canvas>
+          <p id="budget-para"></p>
+          <p id="money-left"></p>
+          <p id="budget-spent"></p>
+        </div>
+      </section>
+
+      <div class="modal-expenses modal">
+        <div>
+          <svg
+            class="close-modal"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+        <h2 class="modal-heading">ADD EXPENSE</h2>
+        <input type="number" placeholder="Amount" id="price" required />
+        <input type="text" placeholder="Description" id="item" />
+        <input class="add-expense-btn" aria-label="confirm" value="CONFIRM" type="button" />
+      </div>
+
+      <div class="modal-income modal">
+        <div>
+          <svg
+            class="close-modal"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+        <h2 class="modal-heading">ADD INCOME</h2>
+        <input type="number" placeholder="Amount" id="amount" required />
+        <input type="text" placeholder="Description" id="source" required />
+        <input class="add-income-btn" value="CONFIRM" aria-label="confirm" type="button" />
+      </div>
+
+      <section class="transactions">
+        <div class="income-container">
+          <div class="flex">
+            <h2 class="income-heading">INCOME</h2>
+            <div class="display-income-btn">
+              <svg
+                class="w-6 h-6"
+                fill="#ddd"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="incomes-list"></div>
+        </div>
+        <div class="expenses-container">
+          <div class="flex">
+            <h2 class="expenses-heading">EXPENSES</h2>
+            <div class="display-expense-btn">
+              <svg
+                class="w-6 h-6"
+                fill="#ddd"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="expenses-list"></div>
+        </div>
+      </section>
+      <section>
+        <h1 class="envelopes-heading">ENVELOPES</h1>
+        <div class="envelopes-section">
+          <p class="envelopes-text">Reach your saving goals.</p>
+          <div class="modal add-envelope-modal">
+            <div>
+              <svg
+                class="close-modal"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="modal-heading">ADD ENVELOPE</h2>
+            <input type="text" placeholder="What are you saving for?" id="category" />
+            <input type="number" placeholder="Savings Goal Amount" id="goal" />
+            <input class="add-category-btn" aria-label="Add category" value="CONFIRM" type="button" />
+          </div>
+          <div class="envelopes">
+            <div class="add-envelope">
+              <button aria-label="Add envelope" class="add-envelope-btn">
+                <svg
+                  fill="#ddd"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
