@@ -1,6 +1,6 @@
 'use strict'
 
-const ctx = document.getElementById("myChart").getContext("2d");
+const ctx = document.getElementById("myChart");
 const priceInput = document.querySelector("#price");
 const itemInput = document.querySelector("#item");
 const amountInput = document.querySelector("#amount");
@@ -258,7 +258,6 @@ const data = {
             cutout: '75%',
             data: [0, 0]
         },
-
     ],
 };
 
@@ -266,7 +265,8 @@ const config = {
     type: "doughnut",
     data: data,
     options: {
-        responsive: true,
+        responsive: false,
+        maintainAspectRatio: false,
     },
 };
 

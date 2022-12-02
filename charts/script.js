@@ -174,22 +174,25 @@ const chooseAsset = function () {
         setTimeout(() => sellInput.style.zIndex = '100', 300)
         buyInput.style.zIndex = '-100'
     })
-    confirmBuy.addEventListener('click', () => {
 
+    confirmBuy.addEventListener('click', () => {
         const selected = allAssets.filter(item => item.name.toLowerCase() === inputAssetBuy.value.toLowerCase())
         addAssetToPortfolio(selected[0].id, selected[0].name, +inputAmountBuy.value, 'buy')
         inputAssetBuy.value = ''
         inputAmountBuy.value = ''
         buyInput.style.transform = 'translateY(100%)'
+        buyButton.style.filter = 'brightness(.6)'
         sellInput.style.transform = 'translateY(100%)'
         buyInput.style.zIndex = '-10'
         sellInput.style.zIndex = '-10'
+
     })
     confirmSell.addEventListener('click', () => {
         const selected = allAssets.filter(item => item.name.toLowerCase() === inputAssetSell.value.toLowerCase())
         addAssetToPortfolio(selected[0].id, selected[0].name, -inputAmountSell.value, 'sell')
         inputAssetSell.value = ''
         inputAmountSell.value = ''
+        sellButton.style.filter = 'brightness(.6)'
         buyInput.style.transform = 'translateY(100%)'
         sellInput.style.transform = 'translateY(100%)'
         buyInput.style.zIndex = '-10'
